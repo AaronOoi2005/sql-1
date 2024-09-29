@@ -1,0 +1,8 @@
+Accept max_rows NUMBER FORMAT '9999' PROMPT 'Enter the maximum number of rows to display: '
+
+TTITLE 'Top '&max_rows' employee with highest salary'
+column salary format $999,999.99
+
+select name, position, salary
+from employees
+where ROWNUM <= 3;

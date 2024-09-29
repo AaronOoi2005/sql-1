@@ -1,0 +1,7 @@
+TTITLE 'Update Price by prompt'
+
+ACCEPT v_newProdID FORMAT '99' PROMPT 'Enter the product id to update price: '
+ACCEPT v_newPrice FORMAT '99' PROMPT 'Enter the new price: '
+UPDATE inventories
+SET price = &v_newPrice
+WHERE product_id=&v_newProdID;

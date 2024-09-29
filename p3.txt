@@ -1,0 +1,2 @@
+select SUM(total_amount) AS "TOTAL_QTY SOLD", AVG(total_amount) as "AVERAGE_QTY_SOLD"
+from orders;

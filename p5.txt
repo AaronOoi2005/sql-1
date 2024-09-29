@@ -1,0 +1,7 @@
+TTITLE 'Average salary for each department'
+column avg(salary) format $999,999.99
+
+select department, avg(salary)
+from employees
+group by department, salary
+order by department;

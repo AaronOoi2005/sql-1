@@ -1,0 +1,5 @@
+TTITLE 'Update Price by increasing all 10%'
+
+UPDATE inventories
+SET price = &v_newPrice
+WHERE product_id=&v_newProdID;

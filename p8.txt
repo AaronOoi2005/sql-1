@@ -1,0 +1,6 @@
+CREATE INDEX employeeIndex
+on employees (department,salary);
+
+
+
+Comment: sorry, I haven't learned index so I will have no clue on how it works

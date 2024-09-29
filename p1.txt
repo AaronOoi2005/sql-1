@@ -1,0 +1,109 @@
+CREATE TABLE employees (
+	id number(10) NOT NULL,
+	name varchar(40) NOT NULL,
+	position varchar(20) NOT NULL,
+	department varchar(40) NOT NULL,
+	salary number(10,2),
+	primary key(id)
+);
+
+CREATE TABLE customers (
+	customer_id number(10) NOT NULL,
+	customer_name varchar(40) NOT NULL,
+	city varchar(99) NOT NULL,
+	primary key(customer_id)
+);
+
+CREATE TABLE inventories (
+	product_id number(10) NOT NULL,
+	product_name varchar(99) NOT NULL,
+	quantity number(10) NOT NULL,
+	price number(10,2) NOT NULL,
+	primary key(product_id)
+);
+
+CREATE TABLE sales (
+	order_id number(10) NOT NULL,
+	customer_id number(10) NOT NULL,
+	product_id number(10) NOT NULL,
+	quantity number(10) NOT NULL,
+	sale_date date NOT NULL,
+	foreign key(order_id) references orders(order_id),
+	foreign key(customer_id) references customers(customer_id),
+	foreign key(product_id) references inventories(product_id)
+);
+
+CREATE TABLE orders (
+	order_id number(10) NOT NULL,
+	order_date date NOT NULL,
+	customer_id number(10) NOT NULL,
+	total_amount number(10) NOT NULL,
+	primary key(order_id),
+	foreign key(customer_id) references customers(customer_id)
+);
+
+INSERT INTO employees VALUES
+(0001','Aaron Ooi','Staff','Sales',60000.00);
+
+INSERT INTO employees VALUES
+(0002','Teh Jia Ying','Admin','Warehouse',69420.50);
+
+INSERT INTO employees VALUES
+(0003','Esther Sim','QA','Marketing',50000.00);
+
+INSERT INTO employees VALUES
+(0004','Shenny Tee','Admin','Warehouse',70000.50);
+
+INSERT INTO employees VALUES
+(0005,'Lee Chen Lin','Admin','Warehouse',40000.00);
+
+INSERT INTO employees VALUES
+(0006,'Khaw Zhe Juin','Promoter','Sales',35000.00);
+
+INSERT INTO employees VALUES
+(0007,'Angus Siew','Admin','Marketing',80000.00);
+
+INSERT INTO employees VALUES
+(0008,'Yeoh Jun','Staff','Sales',90000.00);
+
+INSERT INTO sales VALUES
+(1001,3001,4001,5,'10-Sep-2024');
+
+INSERT INTO sales VALUES
+(1001,3003,'4002,2,'15-Oct-2024');
+
+INSERT INTO sales VALUES
+(1003,3002,'4001,4,'17-Mar-2024');
+
+INSERT INTO customers VALUES
+(3001,'Wei Jeng','New York');
+
+INSERT INTO customers VALUES
+(3002,'Ali','Penang');
+
+INSERT INTO customers VALUES
+(3003,'Abu','New York');
+
+INSERT INTO customers VALUES
+(3004,'Ahmad','Kuala Lumpur');
+
+INSERT INTO orders VALUES
+(1001,'27-Sep-2024',3001,10);
+
+INSERT INTO orders VALUES
+(1002,'29-Sep-2024',3003,4);
+
+INSERT INTO orders VALUES
+(1003,'30-Oct-2024',3003,2);
+
+INSERT INTO inventories VALUES
+(4001,'Table',100,100.50);
+
+INSERT INTO inventories VALUES
+(4002,'Chair',90,50.50);
+
+INSERT INTO inventories VALUES
+(4003,'Drawer',70,50.50);
+
+INSERT INTO inventories VALUES
+(4004,'Wardrobe',50,120.00);

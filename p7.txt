@@ -1,0 +1,3 @@
+Accept del_cust NUMBER FORMAT '9999' PROMPT 'Enter the customer id to delete: '
+DELETE from customers
+where customer_id = &del_cust;
